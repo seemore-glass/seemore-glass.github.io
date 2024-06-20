@@ -24,134 +24,35 @@
 <meta name="libwww-perl" content="none">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta http-equiv="content-language" content="ja">
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>美術館リンク集</title>
+<link rel="stylesheet" href="styles.css">
 </head>
-<body bgcolor="FFFFFF">
-<html>
 <body>
- <table border="2">
-  <tr>
-   <th colspan="10" bgcolor="#CCCCFF">一覧</th>
-  </tr>
-   <td><a href="https://artscape.jp/exhibition/schedule/exhi_schedule_result.php?area=8" target="_blank">artscape</a></td>
+<div id="app">
+  <h1>美術館リンク集</h1>
+  <ul class="accordion">
+    <li v-for="(categoryData, index) in groupedLinks" :key="index" class="accordion-item">
+      <a class="accordion-title" @click="toggleAccordion(categoryData)">
+        {{ categoryData.category }}
+      </a>
+      <ul v-if="categoryData.isOpen" class="accordion-content">
+        <li v-for="(link, linkIndex) in categoryData.links" :key="linkIndex">
+          <a :href="link.link" target="_blank">{{ link.title }}</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
 
-  <tr>
-   <th colspan="10" bgcolor="#CCCCFF">上野</th>
-  </tr>
-   <td><a href="https://www.nmwa.go.jp//jp/index.html" target="_blank">国立西洋美術館</a></td>
-   <td><a href="https://www.tnm.jp/" target="_blank">東京国立博物館</a></td>
-   <td><a href="https://www.tobikan.jp/" target="_blank">東京都美術館</a></td>
-   <td><a href="https://www.geidai.ac.jp/museum/exhibit/current_exhibitions_ja.htm" target="_blank">東京藝大美術館</a></td>
-   <td><a href="http://www.ueno-mori.org/" target="_blank">上野の森美術館</a></td>
-  <tr>
+<!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/vuetify@3.6.9/dist/vuetify.min.css"> -->
+<!-- Include Vue 3 from CDN -->
+<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+<!-- <script src="https://cdn.jsdelivr.net/npm/vuetify@3.6.9/dist/vuetify.min.js"></script> -->
+<!-- <script type="module" src="script2.js"></script> -->
+<script src="script.js"></script>
 
-  <tr>
-   <th colspan="10" bgcolor="#CCCCFF">23区内(国公立)</th>
-  </tr>
-   <td><a href="https://www.nact.jp/" target=_blank>国立新美術館</a></td>
-   <td><a href="https://www.momat.go.jp/" target=_blank>東京国立近代美術館</a></td>
-   <td><a href="https://www.edo-tokyo-museum.or.jp/" target=_blank>江戸東京博物館</a></td>
-   <td><a href="https://www.teien-art-museum.ne.jp/" target=_blank>東京都庭園美術館</a></td>
-   <td><a href="https://www.kunaicho.go.jp/event/sannomaru/sannomaru.html" target=_blank>宮内庁三の丸尚蔵館</a></td>
-
-
-  <tr>
-   <th colspan="10" bgcolor="#CCCCFF">23区内(区立)</th>
-  </tr>
-   <td><a href="https://www.city.itabashi.tokyo.jp/artmuseum/" target="_blank">板橋区立美術館</a></td>
-   <td><a href="https://shoto-museum.jp/" target=_blank>渋谷区立松涛美術館</a></td>
-   <td><a href="https://www.neribun.or.jp/museum.html" target=_blank>練馬区立美術館</a></td>
-   <td><a href="https://www.setagayaartmuseum.or.jp/" target=_blank>世田谷美術館</a></td>
-   <td><a href="https://www.ota-bunka.or.jp/facilities/ryushi/tabid/218/Default.aspx" target=_blank>大田区龍子記念館</a></td>
-   <td><a href="http://mmat.jp/" target=_blank>目黒区美術館</a></td>
-
-  <tr>
-   <th colspan="10" bgcolor="#CCCCFF">23区内(企業系1)</th>
-  </tr>
-
-   <td><a href="http://www.yamatane-museum.or.jp/" target=_blank>山種美術館</a></td>
-   <td><a href="http://idemitsu-museum.or.jp/" target=_blank>出光美術館</a></td>
-   <td><a href="https://mimt.jp/" target=_blank>三菱一号館美術館</a></td>
-   <td><a href="https://www.artizon.museum/" target=_blank>アーティゾン美術館</a></td>
-   <td><a href="http://www.ejrcf.or.jp/gallery/" target=_blank>東京ステーションギャラリー</a></td>
-   <td><a href="http://www.seikado.or.jp/" target=_blank>静嘉堂文庫美術館</a></td>
-
-
-
-  <tr>
-   <th colspan="10" bgcolor="#CCCCFF">23区内(企業系2)</th>
-  </tr>
-
-   <td><a href="http://www.mitsui-museum.jp/" target=_blank>三井記念美術館</a></td>
-   <td><a href="https://www.sen-oku.or.jp/" target=_blank>泉屋博古館 分館</a></td>
-   <td><a href="https://www.sompo-museum.org/" target=_blank>SONPO美術館</a></td>
-   <td><a href="https://www.bunkamura.co.jp/museum/index.html" target=_blank>BunkamuraTheMuseum</a></td>
-   <td><a href="https://www.suntory.co.jp/sma/" target=_blank>サントリー美術館</a></td>
- 
-
-  <tr>
-   <th colspan="10" bgcolor="#CCCCFF">23区内(百貨店・ホテル)</th>
-  </tr>
-   <td><a href="https://www.takashimaya.co.jp/nihombashi/departmentstore/topics/art.html" target=_blank>日本橋高島屋美術画廊</a></td>
-   <td><a href="https://www.nakamuraya.co.jp/museum/" target=_blank>中村屋サロン</a></td>
-   <td><a href="https://www.shukokan.org/" target=_blank>大倉集古館</a></td>
-   <td><a href="https://tcv.roppongihills.com/jp/" target=_blank>東京シティビュー</a></td>
-
-
-
-
-  <tr>
-   <th colspan="10" bgcolor="#CCCCFF">23区内(個人)</th>
-  </tr>
-
-
-   <td><a href="https://www.hasegawamachiko.jp/" target=_blank>長谷川町子美術館</a></td>
-   <td><a href="http://www.ukiyoe-ota-muse.jp/" target=_blank>太田記念美術館</a></td>
-   <td><a href="https://www.gotoh-museum.or.jp/" target=_blank>五島美術館</a></td>
-   <td><a href="http://www.hikari-m-art.org/" target=_blank>光が丘美術館</a></td>
-
-  <tr>
-   <th colspan="10" bgcolor="#CCCCFF">23区内(個人)2</th>
-  </tr>
-   <td><a href="http://www.nezu-muse.or.jp/" target=_blank>根津美術館</a></td>
-   <td><a  href="http://www.eiseibunko.com/" target=_blank>永青文庫</a></td>
-   <td><a href="http://sato-museum.la.coocan.jp/" target=_blank>佐藤美術館</a></td>
-   <td><a href="https://www.satosakura.jp" target=_blank>郷さくら美術館</a></td>
-
-  <tr>
-   <th colspan="10" bgcolor="#CCCCFF">都下</th>
-  </tr>
-
-   <td><a href="http://www.city.fuchu.tokyo.jp/art/" target=_blank>府中市美術館</a></td>
-   <td><a href="https://mitaka-sportsandculture.or.jp/gallery/" target=_blank>三鷹市美術ギャラリー</a></td>
-   <td><a href="http://www.yumebi.com/" target=_blank>八王子市夢美術館</a></td>
-   <td><a href="http://www.tamabi.ac.jp/museum/" target=_blank>多摩美大美術館</a></td>
-   <td><a href="https://www.fujibi.or.jp/" target=_blank>東京富士美術館</a></td>
-   <td><a href="http://hanga-museum.jp/" target=_blank>国際版画美術館</a></td>
-   <td><a href="http://www.musashino-culture.or.jp/a_museum/" target=_blank>吉祥寺美術館</a></td>
-
-
-  <tr>
-   <th colspan="10" bgcolor="#CCCCFF">東京都以外</th>
-  </tr>
-
-   <td><a href="https://yokohama.art.museum/" target=_blank>横浜美術館</a></td>
-   <td><a href="https://www.sogo-seibu.jp/common/museum/" target=_blank>横浜そごう美術館</a></td>
-   <td><a href="http://www.city.hiratsuka.kanagawa.jp/art-muse/" target=_blank>平塚市美術館</a></td>
-   <td><a href="http://www.ccma-net.jp/" target=_blank>千葉市美術館</a></td>
-   <td><a href="http://www2.chiba-muse.or.jp/ART/index.html" target=_blank>千葉県立美術館</a></td>
-   <td><a href="https://pref.spec.ed.jp/momas/" target=_blank>埼玉県立近代美術館</a></td>
-
-  <tr>
-   <th colspan="10" bgcolor="#CCCCFF">東京都以外2</th>
-  </tr>
-
-  <td><a href="https://www.okada-museum.com/" target=_blank>岡田美術館</a></td>
-   <td><a href="http://www.narukawamuseum.co.jp/" target=_blank>成川美術館</a></td>
-   <td><a href="https://www.polamuseum.or.jp/" target=_blank>ポーラ美術館</a></td>
-   <td><a href="https://kawamura-museum.dic.co.jp/" target=_blank>川村記念美術館</a></td>
-   <td><a href="http://www.moaart.or.jp/" target=_blank>MOA美術館</a></td>
-
- </table>
 </body>
 </html>

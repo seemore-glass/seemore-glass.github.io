@@ -1,0 +1,54 @@
+/* Your CSS styles here */
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background-color: #FFFFFF;
+    padding: 10px;
+  }
+  
+  .accordion {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .accordion-item {
+    margin-bottom: 10px;
+    border: 1px solid #007bff; /* Link border */
+    border-radius: 5px;
+    overflow: hidden; /* Ensure border-radius applies correctly */
+  }
+  
+  .accordion-item > .accordion-title {
+    display: block;
+    padding: 10px;
+    text-decoration: none;
+    color: #007bff; /* Link color */
+    background-color: #f8f9fa; /* Background color */
+    cursor: pointer;
+  }
+  
+  .accordion-item > .accordion-title:hover {
+    background-color: #e9ecef; /* Hover background color */
+  }
+  
+  .accordion-content {
+    display: block;
+    padding: 10px;
+  }
+  
+  .accordion-content li {
+    margin-bottom: 8px;
+  }
+  
+  .accordion-content li a {
+    display: block;
+    padding: 8px;
+    text-decoration: none;
+    color: #007bff; /* Link color */
+    transition: background-color 0.3s ease;
+  }
+  
+  .accordion-content li a:hover {
+    background-color: #f0f0f0; /* Hover background color */
+  }
+  
